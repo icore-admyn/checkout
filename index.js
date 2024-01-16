@@ -49,7 +49,7 @@ if (sslPrivKeyPath && sslFullChainPath) {
   });
 
   // Start the server HTTP redirect
-  app.listen(PORT, () => {
+  app.listen(80, () => {
     console.log(`Server is running HTTP to HTTPS redirect`);
   });
 
