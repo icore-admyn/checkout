@@ -18,10 +18,12 @@ const sslPrivKeyPath = process.env.SSL_PRIVATE_KEY_PATH;
 const sslFullChainPath = process.env.SSL_FULL_CHAIN_PATH;
 
 if (sslPrivKeyPath && sslFullChainPath) {
+  app.set('trust proxy', 1); // Trust the first proxy
+
   app.use((req, res, next) => {
     if (!req.secure) {
-      console.log('unsecure connection attempted')
-      return res.redirect(`https://${req.get('Host')}${req.url}`);
+      console.log('unsecure connection attempted');
+      return res.redirect(`https://${req.headers.host}${req.url}`);
     }
     next();
   });
