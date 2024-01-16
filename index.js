@@ -47,6 +47,12 @@ if (sslPrivKeyPath && sslFullChainPath) {
   require('https').createServer(httpsOptions, app).listen(PORT, () => {
     console.log(`Server is running on port ${PORT} with HTTPS`);
   });
+
+  // Start the server HTTP redirect
+  app.listen(PORT, () => {
+    console.log(`Server is running HTTP to HTTPS redirect`);
+  });
+
 } else {
   // Start the server with HTTP
   app.listen(PORT, () => {
