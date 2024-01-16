@@ -20,6 +20,7 @@ const sslFullChainPath = process.env.SSL_FULL_CHAIN_PATH;
 if (sslPrivKeyPath && sslFullChainPath) {
   app.use((req, res, next) => {
     if (!req.secure) {
+      console.log('unsecure connection attempted')
       return res.redirect(`https://${req.get('Host')}${req.url}`);
     }
     next();
