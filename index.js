@@ -44,7 +44,7 @@ if (sslPrivKeyPath && sslFullChainPath) {
   };
 
   // Start the server with HTTPS
-  require('https').createServer(httpsOptions, app).listen(PORT, () => {
+  require('https').createServer(httpsOptions, app).listen(443, () => {
     console.log(`Server is running on port ${PORT} with HTTPS`);
   });
 
