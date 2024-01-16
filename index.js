@@ -13,6 +13,19 @@ app.use(express.static(path.join(__dirname, 'build')));
 app.use(express.json());
 app.use(cors());
 
+// Redirect HTTP to HTTPS
+const sslPrivKeyPath = process.env.SSL_PRIVATE_KEY_PATH;
+const sslFullChainPath = process.env.SSL_FULL_CHAIN_PATH;
+
+if (sslPrivKeyPath && sslFullChainPath) {
+  app.use((req, res, next) => {
+    if (!req.secure) {
+      return res.redirect(`https://${req.get('Host')}${req.url}`);
+    }
+    next();
+  });
+}
+
 // API Routes
 app.use('/api', apiRoutes);
 
@@ -22,9 +35,6 @@ app.get('*', (req, res) => {
 });
 
 // Check if SSL configuration is provided
-const sslPrivKeyPath = process.env.SSL_PRIVATE_KEY_PATH;
-const sslFullChainPath = process.env.SSL_FULL_CHAIN_PATH;
-
 if (sslPrivKeyPath && sslFullChainPath) {
   // Use HTTPS if SSL configuration is provided
   const httpsOptions = {
