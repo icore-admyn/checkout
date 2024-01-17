@@ -167,8 +167,8 @@ export default function Form() {
     }
   }
 
-
   const handleNext = () => {
+
     // Validation logic
     if (activeStep === 0) {
       if (!currency || !amount || !firstName || !lastName || !email || !phone) {

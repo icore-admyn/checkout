@@ -1,7 +1,7 @@
 const axios = require('axios');
 require('dotenv').config();
 
-const url = process.env.API_URL;
+const url = process.env.API_DIRECT_URL;
 const apiKey = process.env.API_TOKEN;
 
 const directApi = async (req, res) => {

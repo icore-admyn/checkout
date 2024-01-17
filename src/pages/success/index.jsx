@@ -1,8 +1,7 @@
 import Container from '../../components/Container';
 import { Link } from 'react-router-dom';
-import { Stack, Typography, useTheme } from '@mui/material';
+import { Stack, Typography, useTheme, Alert } from '@mui/material';
 import WhiteContained from '../../components/Buttons/WhiteOutlined';
-import Form from './form';
 
 export default function Hosted() {
     const theme = useTheme();
@@ -28,7 +27,7 @@ export default function Hosted() {
                 <Typography sx={{ fontSize: '20px', color: 'white', textTransform: 'uppercase' }}>HOSTED (H2H)</Typography>
             </Stack>
             <Container>
-                <Form />
+                <Alert sx={{ mt: 2 }} severity='success'>Your transaction was approved.</Alert>
             </Container>
             <Stack
                 direction={'row'}

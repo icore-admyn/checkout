@@ -4,6 +4,7 @@ import { Box, Stack, useTheme } from '@mui/material';
 import Home from './pages';
 import Direct from './pages/direct';
 import Hosted from './pages/hosted';
+import Success from './pages/success'
 
 import Logo from './assets/logo.svg';
 
@@ -32,6 +33,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/direct" element={<Direct />} />
         <Route path="/hosted" element={<Hosted />} />
+        <Route path="/success" element={<Success />} />
       </Routes>
     </Box>
   );
