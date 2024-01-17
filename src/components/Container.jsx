@@ -35,15 +35,6 @@ export default function Container({ children }) {
             >
                 {children}
             </Box>
-            <SpeedDial
-                ariaLabel="SpeedDial Card Info"
-                sx={{ position: 'absolute', bottom: 16, right: 16 }}
-                icon={<SpeedDialIcon />}
-            >
-                <Box>
-                    Hello
-                </Box>
-            </SpeedDial>
         </Stack>
     );
 }
