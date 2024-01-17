@@ -79,7 +79,6 @@ export default function Form() {
 
             // Handle the response as needed (e.g., show success message, redirect, etc.)
             console.log('Payment successful:', response.data);
-            setIsLoading(false);
             window.location.href = response.data;
         } catch (error) {
             // Handle errors (e.g., show error message)
