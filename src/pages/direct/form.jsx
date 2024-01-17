@@ -12,7 +12,8 @@ import {
   MenuItem,
   Alert,
   Grid,
-  Typography
+  Typography,
+  useTheme
 } from '@mui/material';
 import { useState, useEffect, Fragment } from 'react';
 import card from '../../styles/card.module.css';
@@ -28,6 +29,8 @@ import { styled } from '@mui/material/styles';
 const steps = ['Details', 'Billing', 'Payment'];
 
 export default function Form() {
+  const theme = useTheme();
+
   const [activeStep, setActiveStep] = useState(0);
   const [isLoading, setIsLoading] = useState(false)
   const [isSuccess, setIsSuccess] = useState(false)
@@ -835,14 +838,21 @@ export default function Form() {
 
               {activeStep === steps.length &&
                 <Typography sx={{ m: 0 }}>
-                  <Grid container spacing={1} mt={2} p={2} sx={{
-                    maxHeight: '200px',
-                    overflow: 'scroll',
-                    boxSizing: 'border-box',
-                    border: '1px solid #0255590f',
-                    borderRadius: '8px',
-                    '&::-webkit-scrollbar': { width: '8px' }, '&::-webkit-scrollbar-thumb': { backgroundColor: '#05767A', borderRadius: '100px' }
-                  }}>
+                  <Grid container spacing={1} mt={2} p={2}
+                    sx={{
+                      maxHeight: '200px',
+                      overflow: 'scroll',
+                      boxSizing: 'border-box',
+                      border: '1px solid #0255590f',
+                      borderRadius: '8px',
+                      '&::-webkit-scrollbar': { width: '8px' }, '&::-webkit-scrollbar-thumb': { backgroundColor: '#05767A', borderRadius: '100px' },
+                      [theme.breakpoints.down('sm')]: {
+                        p: 0,
+                        borderRadius: 0,
+                        maxHeight: 'none',
+                        border: 'none'
+                      },
+                    }}>
                     <Grid item xs={4}>
                       <Box>Currency:</Box>
                     </Grid>

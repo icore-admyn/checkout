@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { Box, Stack } from '@mui/material';
+import { Box, Stack, useTheme } from '@mui/material';
 
 import Home from './pages';
 import Direct from './pages/direct';
@@ -8,6 +8,7 @@ import Hosted from './pages/hosted';
 import Logo from './assets/logo.svg';
 
 export default function App() {
+  const theme = useTheme();
 
   return (
     <Box sx={{ width: '100%', minHeight: '100dvh' }}>
@@ -19,7 +20,11 @@ export default function App() {
           height: '50px',
           padding: '40px',
           boxSizing: 'border-box',
-          position: 'absolute'
+          position: 'absolute',
+          [theme.breakpoints.down('sm')]: {
+            position: 'relative',
+            backgroundColor: '#05767'
+          },
         }}>
         <img src={Logo} alt='' width={150} height={50} />
       </Stack>

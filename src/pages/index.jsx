@@ -1,9 +1,11 @@
-import { Stack } from '@mui/material'
+import { Stack, useTheme } from '@mui/material'
 import { Link } from 'react-router-dom';
 import WhiteContained from '../components/Buttons/WhiteOutlined';
 
 
 export default function Home() {
+    const theme = useTheme();
+
     return (
         <Stack
             alignItems={'center'}
@@ -11,6 +13,12 @@ export default function Home() {
             minHeight={'100dvh'}
             direction={'column'}
             gap={2}
+            sx={{
+                [theme.breakpoints.down('sm')]: {
+                    minHeight: 'auto',
+                    mt: '80px'
+                },
+            }}
         >
             <Stack
                 alignItems={'center'}

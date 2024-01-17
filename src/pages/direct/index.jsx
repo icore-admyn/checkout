@@ -1,10 +1,11 @@
 import Form from './form';
 import Container from '../../components/Container';
 import { Link } from 'react-router-dom';
-import { Stack, Typography } from '@mui/material';
+import { Stack, Typography, useTheme } from '@mui/material';
 import WhiteContained from '../../components/Buttons/WhiteOutlined';
 
 export default function Direct() {
+    const theme = useTheme();
 
     return (
         <>
@@ -15,6 +16,13 @@ export default function Direct() {
                     position: 'absolute',
                     top: 20,
                     left: 20,
+                    [theme.breakpoints.down('sm')]: {
+                        position: 'relative',
+                        backgroundColor: '#05767',
+                        top: 0,
+                        left: 0,
+                        justifyContent: 'center'
+                    },
                 }}
             >
                 <Typography sx={{ fontSize: '20px', color: 'white', textTransform: 'uppercase' }}>Direct (S2S)</Typography>
@@ -29,6 +37,15 @@ export default function Direct() {
                     position: 'absolute',
                     top: 20,
                     right: 20,
+                    [theme.breakpoints.down('sm')]: {
+                        position: 'relative',
+                        backgroundColor: '#05767',
+                        top: 0,
+                        left: 0,
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        pb: '40px'
+                    },
                 }}
             >
                 <Link to='/hosted'><WhiteContained >Hosted (H2H)</WhiteContained></Link>
